@@ -1,0 +1,62 @@
+<body>
+           <a href="#"> Add Club</a>
+           <h1> List Clubs </h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            id
+                                                    
+                        </th>
+                        <th>
+                            name
+                                                    
+                        </th>
+                        <th>
+                            description
+                                                    
+                        </th>
+                       
+                        <th>
+                            Update
+                                                    
+                        </th>
+                        <th>
+                            Delete
+                                                    
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in tabClubs %}
+                        <tr>
+                            <td>
+                                {{ i.id }}
+                            </td>
+                            <td>
+                                {{ i.name }}
+                            </td>
+                           <td>
+                                {{ i.description }}
+                            </td>
+                           <td>
+                                <a href="{{ path('app_updateClub',{'id':i.id}) }}">
+                                    Update
+                                                                    
+                                </a>
+                            </td>
+                           <td>
+                                <a href="{{ path('app_removeClub',{'id':i.id}) }}">
+                                    Delete
+                                                                    
+                                </a>
+                            </td>
+
+                            
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        </body>
