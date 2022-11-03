@@ -1,0 +1,117 @@
+<body>
+
+
+           <a href="{{path('app_AddEvent')}}"> Add Event</a>
+           <h1> List Events </h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                                                    
+                        </th>
+                        <th>
+                            Title
+                                                    
+                        </th>
+                        <th>
+                            DateDebut
+                                                    
+                        </th>
+                       <th>
+                            DateFin
+                                                    
+                        </th>
+                        <th>
+                            Update
+                                                    
+                        </th>
+                        <th>
+                            Delete
+                                                    
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in tabEvents %}
+                        <tr>
+                            <td>
+                                {{ event.id }}
+                            </td>
+                            <td>
+                                {{ event.Title|upper }}
+                            </td>
+                           <td>
+                                {{ event.DateDebut|date("m/d/y") }}
+                            </td>
+                            <td>
+                                {{ event.DateFin|date("m/d/y")}}
+                            </td>
+                           <td>
+                                <a href="{{ path('app_updateEvent',{'id':event.id}) }}">
+                                    Update
+                                                                    
+                                </a>
+                            </td>
+                           <td>
+                                <a href="{{ path('app_removeEvent',{'id':event.id}) }}">
+                                    Delete
+                                                                    
+                                </a>
+                            </td>
+
+                            
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+
+           <h3> List Events DESC by title </h3> 
+           <table border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                                                    
+                        </th>
+                        <th>
+                            Title
+                                                    
+                        </th>
+                        <th>
+                            DateDebut
+                                                    
+                        </th>
+                       <th>
+                            DateFin
+                                                    
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in byTitle %}
+                        <tr>
+                            <td>
+                                {{ event.id }}
+                            </td>
+                            <td>
+                                {{ event.Title|upper }}
+                            </td>
+                            <td>
+                                {{ event.DateDebut|date("m/d/y") }}
+                            </td>
+                            <td>
+                                {{ event.DateFin|date("m/d/y")}}
+                            </td>
+                           <td>
+                          
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </body>

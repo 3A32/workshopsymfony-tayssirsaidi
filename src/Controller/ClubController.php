@@ -2,6 +2,7 @@
 //namespace AppBundle\Form\Type;
 namespace App\Controller;
 //use App\Controller\ClubType;
+use App\Form\ClubType;
 use Doctrine\DBAL\Schema\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,9 +39,7 @@ class ClubController extends AbstractController
         $club = new Club();
         $form = $this->createForm(ClubType::class, $club);
         $form->handleRequest($request);
-        //$club->setName("club2");
-        //$club->setDescription("desc2");
-        //$em=$this->getDoctrine()->getManager(); version 9dima
+        
         if ($form->isSubmitted()) {
             $em = $doctrine->getManager();
             $em->persist($club);
